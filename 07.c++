@@ -29,3 +29,5 @@ int main() {
 }
 // Enter a number to calculate its factorial: 5
 // Factorial of 5 is: 120
+
+
