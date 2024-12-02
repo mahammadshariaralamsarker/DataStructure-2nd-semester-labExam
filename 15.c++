@@ -1,20 +1,19 @@
 #include <iostream>
 using namespace std;
 
+const int MAX_SIZE = 100;  // Maximum size of the queue
+
 // Structure to represent a queue
 struct Queue {
-    int arr[100];
+    int arr[MAX_SIZE];
     int front, rear;
 
     // Constructor to initialize the queue
-    Queue() {
-        front = -1;  // Initially, the queue is empty
-        rear = -1;
-    }
+    Queue() : front(-1), rear(-1) {}
 
     // Function to check if the queue is full
     bool isFull() {
-        return rear == 99;
+        return rear == MAX_SIZE - 1;
     }
 
     // Function to check if the queue is empty
@@ -25,10 +24,10 @@ struct Queue {
     // Function to insert an element into the queue (enqueue)
     void enqueue(int data) {
         if (isFull()) {
-            cout << "Queue is full. Cannot enqueue " << data << endl;
+            cout << "Error: Queue overflow. Cannot enqueue " << data << "." << endl;
         } else {
             if (front == -1) {
-                front = 0;  // First element being inserted
+                front = 0;  // Initialize front on first enqueue
             }
             arr[++rear] = data;
             cout << "Enqueued " << data << " to the queue." << endl;
@@ -38,9 +37,12 @@ struct Queue {
     // Function to remove an element from the queue (dequeue)
     void dequeue() {
         if (isEmpty()) {
-            cout << "Queue is empty. Cannot dequeue." << endl;
+            cout << "Error: Queue underflow. Cannot dequeue." << endl;
         } else {
             cout << "Dequeued " << arr[front++] << " from the queue." << endl;
+            if (front > rear) {
+                front = rear = -1;  // Reset queue when empty
+            }
         }
     }
 
@@ -99,52 +101,52 @@ int main() {
 
     return 0;
 }
-// Queue Operations Menu:
-// 1. Enqueue an element to the queue
-// 2. Dequeue an element from the queue
-// 3. Display the queue
-// 4. Exit
-// Enter your choice: 1
-// Enter the data to enqueue into the queue: 10
-// Enqueued 10 to the queue.
+Queue Operations Menu:
+1. Enqueue an element to the queue
+2. Dequeue an element from the queue
+3. Display the queue
+4. Exit
+Enter your choice: 1
+Enter the data to enqueue into the queue: 10
+Enqueued 10 to the queue.
 
-// Queue Operations Menu:
-// 1. Enqueue an element to the queue
-// 2. Dequeue an element from the queue
-// 3. Display the queue
-// 4. Exit
-// Enter your choice: 1
-// Enter the data to enqueue into the queue: 20
-// Enqueued 20 to the queue.
+Queue Operations Menu:
+1. Enqueue an element to the queue
+2. Dequeue an element from the queue
+3. Display the queue
+4. Exit
+Enter your choice: 1
+Enter the data to enqueue into the queue: 20
+Enqueued 20 to the queue.
 
-// Queue Operations Menu:
-// 1. Enqueue an element to the queue
-// 2. Dequeue an element from the queue
-// 3. Display the queue
-// 4. Exit
-// Enter your choice: 3
-// Queue elements: 10 20
+Queue Operations Menu:
+1. Enqueue an element to the queue
+2. Dequeue an element from the queue
+3. Display the queue
+4. Exit
+Enter your choice: 3
+Queue elements: 10 20 
 
-// Queue Operations Menu:
-// 1. Enqueue an element to the queue
-// 2. Dequeue an element from the queue
-// 3. Display the queue
-// 4. Exit
-// Enter your choice: 2
-// Dequeued 10 from the queue.
+Queue Operations Menu:
+1. Enqueue an element to the queue
+2. Dequeue an element from the queue
+3. Display the queue
+4. Exit
+Enter your choice: 2
+Dequeued 10 from the queue.
 
-// Queue Operations Menu:
-// 1. Enqueue an element to the queue
-// 2. Dequeue an element from the queue
-// 3. Display the queue
-// 4. Exit
-// Enter your choice: 3
-// Queue elements: 20
+Queue Operations Menu:
+1. Enqueue an element to the queue
+2. Dequeue an element from the queue
+3. Display the queue
+4. Exit
+Enter your choice: 3
+Queue elements: 20 
 
-// Queue Operations Menu:
-// 1. Enqueue an element to the queue
-// 2. Dequeue an element from the queue
-// 3. Display the queue
-// 4. Exit
-// Enter your choice: 4
-// Exiting the program.
+Queue Operations Menu:
+1. Enqueue an element to the queue
+2. Dequeue an element from the queue
+3. Display the queue
+4. Exit
+Enter your choice: 4
+Exiting the program.

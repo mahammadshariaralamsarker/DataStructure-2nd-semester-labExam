@@ -1,40 +1,36 @@
 #include <iostream>
 using namespace std;
 
+const int MAX_SIZE = 100;  // Maximum size of the stack
+
 // Structure to represent a stack
 struct Stack {
-    int arr[100];
+    int arr[MAX_SIZE];
     int top;
 
     // Constructor to initialize the stack
-    Stack() {
-        top = -1;  // Initially, stack is empty
-    }
+    Stack() : top(-1) {}
 
     // Function to check if the stack is full
-    bool isFull() {
-        return top == 99;
-    }
+    bool isFull() { return top == MAX_SIZE - 1; }
 
     // Function to check if the stack is empty
-    bool isEmpty() {
-        return top == -1;
-    }
+    bool isEmpty() { return top == -1; }
 
     // Function to insert an element into the stack (push)
     void push(int data) {
         if (isFull()) {
-            cout << "Stack is full. Cannot push " << data << endl;
+            cout << "Error: Stack overflow. Cannot push " << data << "." << endl;
         } else {
             arr[++top] = data;
-            cout << "Pushed " << data << " to the stack." << endl;
+            cout << "Pushed " << data << " onto the stack." << endl;
         }
     }
 
     // Function to remove an element from the stack (pop)
     void pop() {
         if (isEmpty()) {
-            cout << "Stack is empty. Cannot pop." << endl;
+            cout << "Error: Stack underflow. Cannot pop." << endl;
         } else {
             cout << "Popped " << arr[top--] << " from the stack." << endl;
         }
@@ -45,7 +41,7 @@ struct Stack {
         if (isEmpty()) {
             cout << "Stack is empty." << endl;
         } else {
-            cout << "Stack elements: ";
+            cout << "Stack elements (top to bottom): ";
             for (int i = top; i >= 0; i--) {
                 cout << arr[i] << " ";
             }
@@ -95,52 +91,52 @@ int main() {
 
     return 0;
 }
-// Stack Operations Menu:
-// 1. Push an element to the stack
-// 2. Pop an element from the stack
-// 3. Display the stack
-// 4. Exit
-// Enter your choice: 1
-// Enter the data to push onto the stack: 10
-// Pushed 10 to the stack.
+Stack Operations Menu:
+1. Push an element to the stack
+2. Pop an element from the stack
+3. Display the stack
+4. Exit
+Enter your choice: 1
+Enter the data to push onto the stack: 10
+Pushed 10 onto the stack.
 
-// Stack Operations Menu:
-// 1. Push an element to the stack
-// 2. Pop an element from the stack
-// 3. Display the stack
-// 4. Exit
-// Enter your choice: 1
-// Enter the data to push onto the stack: 20
-// Pushed 20 to the stack.
+Stack Operations Menu:
+1. Push an element to the stack
+2. Pop an element from the stack
+3. Display the stack
+4. Exit
+Enter your choice: 1
+Enter the data to push onto the stack: 20
+Pushed 20 onto the stack.
 
-// Stack Operations Menu:
-// 1. Push an element to the stack
-// 2. Pop an element from the stack
-// 3. Display the stack
-// 4. Exit
-// Enter your choice: 3
-// Stack elements: 20 10
+Stack Operations Menu:
+1. Push an element to the stack
+2. Pop an element from the stack
+3. Display the stack
+4. Exit
+Enter your choice: 3
+Stack elements (top to bottom): 20 10 
 
-// Stack Operations Menu:
-// 1. Push an element to the stack
-// 2. Pop an element from the stack
-// 3. Display the stack
-// 4. Exit
-// Enter your choice: 2
-// Popped 20 from the stack.
+Stack Operations Menu:
+1. Push an element to the stack
+2. Pop an element from the stack
+3. Display the stack
+4. Exit
+Enter your choice: 2
+Popped 20 from the stack.
 
-// Stack Operations Menu:
-// 1. Push an element to the stack
-// 2. Pop an element from the stack
-// 3. Display the stack
-// 4. Exit
-// Enter your choice: 3
-// Stack elements: 10
+Stack Operations Menu:
+1. Push an element to the stack
+2. Pop an element from the stack
+3. Display the stack
+4. Exit
+Enter your choice: 3
+Stack elements (top to bottom): 10 
 
-// Stack Operations Menu:
-// 1. Push an element to the stack
-// 2. Pop an element from the stack
-// 3. Display the stack
-// 4. Exit
-// Enter your choice: 4
-// Exiting 
+Stack Operations Menu:
+1. Push an element to the stack
+2. Pop an element from the stack
+3. Display the stack
+4. Exit
+Enter your choice: 4
+Exiting the program.

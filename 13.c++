@@ -72,3 +72,9 @@ int main() {
 
     return 0;
 }
+1 10  // Insert 10 at the beginning
+2 20  // Insert 20 at the end
+5     // Display the list: 10 20
+3     // Delete from the beginning
+5     // Display the list: 20
+6     // Exit
